@@ -1,31 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Solr managed schema - automatically generated - DO NOT EDIT -->
 <schema name="default-config" version="1.6">
   <uniqueKey>id</uniqueKey>
 
-
   <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
   <field name="_version_" type="plong" indexed="false" stored="false" />
-
   <field name="_root_" type="string" indexed="true" stored="false" docValues="false" />
-  <field name="_nest_path_" type="_nest_path_" />
-  <fieldType name="_nest_path_" class="solr.NestPathField" />
-
+  <field name="_nest_path_" type="_nest_path_" /> <fieldType name="_nest_path_" class="solr.NestPathField" />
   <field name="_text_" type="text_general" indexed="true" stored="false" multiValued="true" />
 
-
   <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true" />
-  <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true" />
-
   <fieldType name="plong" class="solr.LongPointField" docValues="true" />
   <fieldType name="pfloat" class="solr.FloatPointField" docValues="true" />
 
+  <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true" />
   <fieldType name="plongs" class="solr.LongPointField" docValues="true" multiValued="true" />
   <fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true" />
-
   <fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true" />
 
   <fieldType name="location" class="solr.LatLonPointSpatialField" docValues="true" />
+
   <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100" multiValued="true">
     <analyzer type="index">
       <tokenizer class="solr.StandardTokenizerFactory" />
@@ -40,21 +33,9 @@
     </analyzer>
   </fieldType>
 
-
   <fieldType name="text_ja" class="solr.TextField" autoGeneratePhraseQueries="false" positionIncrementGap="100">
     <analyzer>
       <tokenizer class="solr.JapaneseTokenizerFactory" mode="search" />
-      <filter class="solr.JapaneseBaseFormFilterFactory" />
-      <filter class="solr.JapanesePartOfSpeechStopFilterFactory" tags="lang/stoptags_ja.txt" />
-      <filter class="solr.CJKWidthFilterFactory" />
-      <filter class="solr.StopFilterFactory" words="lang/stopwords_ja.txt" ignoreCase="true" />
-      <filter class="solr.JapaneseKatakanaStemFilterFactory" minimumLength="4" />
-      <filter class="solr.LowerCaseFilterFactory" />
-    </analyzer>
-  </fieldType>
-  <fieldType name="ngram_ja" class="solr.TextField" autoGeneratePhraseQueries="false" positionIncrementGap="100">
-    <analyzer>
-      <tokenizer class="solr.NGramTokenizerFactory" maxGramSize="3" minGramSize="1" />
       <filter class="solr.JapaneseBaseFormFilterFactory" />
       <filter class="solr.JapanesePartOfSpeechStopFilterFactory" tags="lang/stoptags_ja.txt" />
       <filter class="solr.CJKWidthFilterFactory" />
@@ -73,9 +54,5 @@
   <field name="geo_p" type="location" uninvertible="true" indexed="true" stored="true" />
   <field name="phone_number" type="string" uninvertible="true" indexed="true" stored="true" />
   <field name="category" type="string" uninvertible="true" indexed="true" stored="true" />
-
-  <field name="address_ngram" type="ngram_ja" uninvertible="true" indexed="true" stored="false"/>
-  <copyField source="address" dest="address_ngram"/>
-  <field name="name_ngram" type="ngram_ja" uninvertible="true" indexed="true" stored="false"/>
-  <copyField source="name" dest="name_ngram"/>
+  
 </schema>

@@ -8,4 +8,5 @@ sudo apt-get install openjdk-11-jdk -y
 wget https://archive.apache.org/dist/lucene/solr/8.3.1/solr-8.3.1.tgz
 tar xvzf solr-8.3.1.tgz 
 
-
+sudo apt-get install python3
+sudo apt-get install python3-pip

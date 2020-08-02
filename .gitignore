@@ -4,5 +4,8 @@ solr-8.3.1.tgz
 memo.md
 *tsv
 *dat
-*svm*
+svm_rank_classify
+svm_rank_learn
+svm_rank_linux64.tar.gz
+svm_struct_model
 LICENSE.txt
